@@ -54,5 +54,23 @@ A call expression and the body of the function being calledare evaluated in diff
 
 ```
 
-## 2.3 Conditional Statements
+## 2.3 Conditional Statements 条件语句
+A statement is executed by the interpreter to perform an action ,like bind a name to a value, or denfine a new function.
 
+a conditional statement 可以被 header 分为 不同的 clause
+
+
+
+![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220327202424.png)
+![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220327202906.png)
+
+
+
+
+The first header determines a statement’s type
+The header of a clause “controls” the suite that follows
+def statements are compound statements
+
+
+A suite is a sequence of statements
+To “execute” a suite means to execute its sequence of statements, in order

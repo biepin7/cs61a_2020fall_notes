@@ -4,20 +4,18 @@ http://composingprograms.com/pages/12-elements-of-programming.html
 
 
 
-## 1.1 Expressions
+## 1.1 Expressions 表达式
 
-### Types of expressions
+### 1.1.1 Types of expressions
 
+上来先定义什么是 expression：
 An expression describes a computation and evaluates to a value
+”一个表达式描述的是一种计算，然后表达式最终会计算得出一个具体的值“
 
-
-```
-2015 +15
-```
-
-### Call Expressions in Python
+### 1.1.2 Call Expressions in Python
 
 All expressions can use function call notation
+“表达式里可以包含函数调用”
 
 ```
 # Call expressions
@@ -27,14 +25,19 @@ pow(100, 2)
 pow(2, 100)
 ```
 
-### Anatomy of a Call Expression
+### 1.1.3 Anatomy of a Call Expression 调用表达式剖析
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325182140.png)
 
+Operators and operands are also expressions，So they evaluate to values.
 
-Operators and operands are also expressions
-    1. Evaluate the operator and then the operand subexpressions
-    2. Apply the function that is the value of the operator
-       to the arguments that are the values of the operands
+就是说这个这俩玩意他都是 expressions，所以他俩能计算出来值
+
+Evaluation procedure for call expressions:
+       1. Evaluate the operator and then the operand subexpressions
+    1. Apply the function that is the value of the operator
+        to the arguments that are the values of the operands
+
+
 
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325182340.png)
 
@@ -72,14 +75,17 @@ TypeError: 'int' object is not callable
 ```
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325183959.png)
 
+注意这里分出来了：`Primitive exprsssions` 和 `Call expressions`
+
 #### Discussion Question 1
 What is the value of the final expression in this sequence?
+```
 >>> f = min # f:min
 >>> f = max # f:max
 >>> g, h = min, max # g:min, h:max
 >>> max = g # max:g:min 但是 f 和 h 没变 ： f:max g:min h:max max:min
 >>> max(f(2, g(h(1, 5), 3)), 4)
-
+```
 详细的解析如下：
 ```
 >>> f=min
@@ -115,7 +121,10 @@ What is the value of the final expression in this sequence?
 >>> max(f(2, g(h(1, 5), 3)), 4)
 3
 ```
-## 1.2 Environment Diagrams
+
+
+
+## 1.2 Environment Diagrams 
 
 ### Environment Diagrams
 
