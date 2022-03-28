@@ -124,50 +124,107 @@ What is the value of the final expression in this sequence?
 
 
 
-## 1.2 Environment Diagrams 
+## 1.2 Environment Diagrams 环境图
 
-### Environment Diagrams
-
+照例给出定义：
 Environment diagrams visualize the interpreter’s process.
 
+环境图可视化了解释器的过程。
+
+对应网址：
 https://pythontutor.com/composingprograms.html#mode=edit
 
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325185428.png)
 
 巴拉巴拉讲了这个玩意怎么用，然后去把上面的测试跑一下
 
+### Assignment Statements 赋值语句
+
+讲赋值语句的执行规则
+
 **Execution rule for assignment statements:**
+
 **1. Evaluate all expressions to the right of = from left to right.**
+
 **2. Bind all names to the left of = to those resulting values in the current frame.**
 
-## Defining Functions
-Assignment is a simple means of abstraction: binds names to values
-Function definition is a more powerful means of abstraction: binds names to expressions
-函数：强！
+
+1. 从左到右计算`=`右边的表达式
+2. 在当前 frame 把计算结果绑定到`=`左边的 name 
+
+
+## 1.3 Defining Functions 定义函数
+
+Assignment is a simple means of abstraction: **binds names to values**
+
+Function definition is a more powerful means of abstraction: **binds names to expressions**
+
+区别于 Assignment ，函数：强！
+
 函数的使用：
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325190338.png)
 
+```
+>>> def <name>(<formal parameters>):
+    return <return expression>
+```
+
+注意途中定义了两个函数的细分：
+- signature ：函数的签名，即参数列表，指示函数采用的参数数
+- body ：函数体，应用函数时执行的计算
+
+
 讲了def的执行过程：
+
 Execution procedure for def statements:
+
     1. Create a function with signature <name>(<formal parameters>)
+    
     2. Set the body of that function to be everything indented after the first line
+    
     3. Bind <name> to that function in the current frame
 
-
+尤其需要注意的是第三点，name 会 bind to function ，而且是在当前的 frame 下
+ 
 ### Calling User-Defined Functions
+
+用户定义的函数的执行过程：
+
 Procedure for calling/applying user-defined functions (version 1):
+
     1. Add a local frame, forming a new environment
     2. Bind the function's formal parameters to its arguments in that frame
     3. Execute the body of the function in that new environment
+
 ![](https://raw.githubusercontent.com/biepin7/CloudForImg/master/20220325190520.png)
 
+这个也非常有意思
+1. 当 calling 的时候，会 add a loacl frame,forming a new environment ,注意一个 add ,一个 forming
+2. 这时候会把 formal parameters 也就是经常说的形参绑定到 its
+arguments（这个词又是啥）
+3. 在新环境下执行
+4. 注意 是 return value ，而不是 binding
+
 **A function’s signature has all the information needed to create a local frame**
+
+这句话我不懂，能不能推定说是 local frame 只要有 formal parameters 就可以了，#todo
+
 ### Looking Up Names In Environments
 Every expression is evaluated in the context of an environment.
+每个表达式都在环境的上下文中进行计算。
+
+
 So far, the current environment is either:
 - The global frame alone, or
 - A local frame, followed by the global frame.
 
 以及强调！！！：
+
 **An environment is a sequence of frames.**
+
+环境是一系列的 frame
+
 **A name evaluates to the value bound to that name in the earliest frame of the current environment in which that name is found.**
+
+名称的计算结果为在找到该名称的当前环境的最早帧中绑定到该名称的值。
+
