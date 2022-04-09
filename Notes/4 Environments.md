@@ -142,7 +142,7 @@ composer(happy, make_texter("☃︎"))('snow day!')
 
 ## 4.5 Self-Reference
 
-这里我不是太懂，以后应该多复习几遍
+PS:这里我不是太懂，以后应该多复习几遍
 
 ```
 def print_sums(n):
